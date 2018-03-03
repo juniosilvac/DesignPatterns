@@ -1,53 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 
 namespace DesignPatterns
 {
-  public class Journal
-  {
-    private readonly List<string> entries = new List<string>();
-    private static int count = 0;
-
-    public int AddEntry(string text)
-    {
-      entries.Add($"{++count}: {text}");
-      return count;
-    }
-
-    public void RemoveEntry(int index)
-    {
-      entries.RemoveAt(index);
-    }
-
-    public override string ToString()
-    {
-      return string.Join(Environment.NewLine, entries);
-    }   
-  }
-
-  public class Persistence
-  {
-    public void SaveToFile(Journal j, string filename, bool overwrite = false)
-    {
-      if(overwrite || !File.Exists(filename))
-        File.WriteAllText(filename, j.ToString());
-    }
-  }
   class Program
   {
     static void Main(string[] args)
     {
+      // Single Responsibility Principle
       var j = new Journal();
       j.AddEntry("I cried today");
       j.AddEntry("I ate a bug");
-      Console.WriteLine(j);
+      // Console.WriteLine(j);
 
       var p = new Persistence();
-      var filename = "~/Temp/journal.txt";
+      var filename = @"/path/Temp/journal.txt";
       p.SaveToFile(j, filename, true);
-      Process.Start(filename);
+      // Process.Start(filename);
+
+      // Open-Closed Principle
+      var apple = new Product("Apple", Color.Green, Size.Small);
+      var tree = new Product("Tree", Color.Green, Size.Large);
+      var house = new Product("House", Color.Blue, Size.Large);
+
+      Product[] products = {apple, tree, house};
+
+      var pf = new ProductFilter();
+      Console.WriteLine("Green products (old):");
+      foreach(var pfColor in pf.FilterByColor(products, Color.Green))
+      {
+        Console.WriteLine($" - {pfColor.Name} is green");
+      }
+
+      var bf = new BetterFilter();
+      Console.WriteLine("Green products (new):");
+      foreach(var f in bf.Filter(products, new ColorSpecification(Color.Green)))
+      {
+        Console.WriteLine($" - {f.Name} is green");
+      }
+
+      Console.WriteLine("Large blue items:");
+      foreach(var bl in bf.Filter(products, 
+      new AndSpecification<Product>(
+        new ColorSpecification(Color.Blue),
+        new SizeSpecification(Size.Large)        
+      )))
+      {
+        Console.WriteLine($" - {bl.Name} is big and blue");
+      }
     }
   }
 }
