@@ -9,7 +9,7 @@ namespace DesignPatterns
     public AndSpecification(ISpecification<T> first, ISpecification<T> second)
     {     
       this.first =  first?? throw new ArgumentNullException(paramName: nameof(first));
-      this.second = second?? throw new ArgumentNullException(paramName: nameof(second));;
+      this.second = second?? throw new ArgumentNullException(paramName: nameof(second));
     }
 
     public bool IsSatisfied(T t)
