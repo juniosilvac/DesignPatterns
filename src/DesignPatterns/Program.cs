@@ -59,7 +59,7 @@ namespace DesignPatterns
       var sq = new Square();
       sq.Width = 4;
       Console.WriteLine($"{sq} has area {Area(sq)}");
-      #endregion
+      #endregion    
     }
   }
 }
