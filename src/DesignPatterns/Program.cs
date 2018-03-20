@@ -53,13 +53,25 @@ namespace DesignPatterns
       #endregion
     
       #region Liskov Substitution Principle
-      var rc = new Rectangle(2, 3);
-      Console.WriteLine($"{rc} has area {Area(rc)}");
+      // var rc = new Rectangle(2, 3);
+      // Console.WriteLine($"{rc} has area {Area(rc)}");
 
-      var sq = new Square();
-      sq.Width = 4;
-      Console.WriteLine($"{sq} has area {Area(sq)}");
+      // var sq = new Square();
+      // sq.Width = 4;
+      // Console.WriteLine($"{sq} has area {Area(sq)}");
       #endregion    
+      
+      #region Dependency Inversion Principle
+      var parent = new Person{Name = "John"};
+      var child1 = new Person{Name = "Chris"};
+      var child2 = new Person{Name = "Mary"};
+
+      var relationships = new Relationships();
+      relationships.AddParentAndChild(parent, child1);
+      relationships.AddParentAndChild(parent, child2);
+
+      new Research(relationships);
+      #endregion
     }
   }
 }
