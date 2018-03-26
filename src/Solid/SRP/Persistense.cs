@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace DesignPatterns
+namespace DesignPatterns.Solid.SRP
 { 
   // handles the responsibility of persisting objects
   public class Persistence

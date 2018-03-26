@@ -1,6 +1,6 @@
 using System;
 
-namespace DesignPatterns
+namespace DesignPatterns.Solid.DIP
 {
   public class Person
   {

@@ -1,4 +1,4 @@
-namespace DesignPatterns
+namespace DesignPatterns.Solid.DIP
 {
   public enum Relationship
   {

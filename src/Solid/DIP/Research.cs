@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace DesignPatterns
+namespace DesignPatterns.Solid.DIP
 {
   public class Research
   {

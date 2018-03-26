@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns
+namespace DesignPatterns.Creational.Builder
 {
   public class HtmlElement
   {
@@ -26,7 +26,7 @@ namespace DesignPatterns
     {
       var sb = new StringBuilder();
       var i = new string(' ',indentSize * indent);
-      sb.AppendLine($"{i}<{Name}");
+      sb.AppendLine($"{i}<{Name}>");
 
       if(!string.IsNullOrWhiteSpace(Text))
       {

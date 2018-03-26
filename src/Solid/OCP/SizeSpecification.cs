@@ -1,4 +1,4 @@
-namespace DesignPatterns
+namespace DesignPatterns.Solid.OCP
 {
   public class SizeSpecification : ISpecification<Product>
   {

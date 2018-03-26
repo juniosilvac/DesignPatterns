@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DesignPatterns
+namespace DesignPatterns.Solid.OCP
 {
   public class BetterFilter : IFilter<Product>
   {

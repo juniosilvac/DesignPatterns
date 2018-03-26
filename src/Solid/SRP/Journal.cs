@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DesignPatterns
+namespace DesignPatterns.Solid.SRP
 {
 public class Journal
   {

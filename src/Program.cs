@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
+using DesignPatterns.Creational.Builder;
 using static System.Console;
 
 namespace DesignPatterns
 {
   class Program
   {
-    static int Area (Rectangle r) => r.Width * r.Height;
+    //static int Area (Rectangle r) => r.Width * r.Height;
     static void Main(string[] args)
     {      
       #region Single Responsibility Principle
@@ -75,36 +76,20 @@ namespace DesignPatterns
       // new Research(relationships);
       #endregion
 
-       // if you want to build a simple HTML paragraph using StringBuilder
-      var hello = "hello";
-      var sb = new StringBuilder();
-      sb.Append("<p>");
-      sb.Append(hello);
-      sb.Append("</p>");
-      WriteLine(sb);
+      #region Builder pattern     
+      var pb = new PersonBuilder();
+      Person person = pb
+      .Lives.At("Rua Rezende")
+            .In("Parana")
+            .WithPostcode("32232-430")
+      .Works.At("Fabrica")
+            .AsA("Engenheiro")
+            .Earning(120000);
+      
+      WriteLine(person);
 
-      // now I want an HTML list with 2 words in it
-      var words = new[] {"hello", "world"};
-      sb.Clear();
-      sb.Append("<ul>");
-      foreach (var word in words)
-      {
-        sb.AppendFormat("<li>{0}</li>", word);
-      }
-      sb.Append("</ul>");
-      WriteLine(sb);
 
-      // ordinary non-fluent builder
-      var builder = new HtmlBuilder("ul");
-      builder.AddChild("li", "hello");
-      builder.AddChild("li", "world");
-      WriteLine(builder.ToString());
-
-      // fluent builder
-      sb.Clear();
-      builder.Clear(); // disengage builder from the object it's building, then...
-      builder.AddChildFluent("li", "hello").AddChildFluent("li", "world");
-      WriteLine(builder);
+      #endregion
     }
   }
 }

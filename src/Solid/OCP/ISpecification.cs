@@ -1,4 +1,4 @@
-namespace DesignPatterns
+namespace DesignPatterns.Solid.OCP
 {
   public interface ISpecification<T>
   {

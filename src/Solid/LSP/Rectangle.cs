@@ -1,4 +1,4 @@
-namespace DesignPatterns
+namespace DesignPatterns.Solid.LSP
 {
   public class Rectangle
   {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DesignPatterns 
+namespace DesignPatterns.Solid.DIP
 {
   public interface IRelationshipBrowser
   {
