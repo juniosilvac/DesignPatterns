@@ -1,4 +1,4 @@
-namespace DesignPatterns.Factory
+namespace DesignPatterns.Creational.Factory
 {
    public enum CoordinateSystem
    {

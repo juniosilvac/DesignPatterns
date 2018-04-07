@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
+using DesignPatterns.Solid.SRP;
+using DesignPatterns.Solid.OCP;
+using DesignPatterns.Solid.LSP;
+//using DesignPatterns.Solid.DIP;
 using DesignPatterns.Creational.Builder;
+using DesignPatterns.Creational.Factory;
 using static System.Console;
 
 namespace DesignPatterns
@@ -77,18 +82,22 @@ namespace DesignPatterns
       #endregion
 
       #region Builder pattern     
-      var pb = new PersonBuilder();
-      Person person = pb
-      .Lives.At("Rua Rezende")
-            .In("Parana")
-            .WithPostcode("32232-430")
-      .Works.At("Fabrica")
-            .AsA("Engenheiro")
-            .Earning(120000);
+      // var pb = new PersonBuilder();
+      // Person person = pb
+      // .Lives.At("Rua Rezende")
+      //       .In("Parana")
+      //       .WithPostcode("32232-430")
+      // .Works.At("Fabrica")
+      //       .AsA("Engenheiro")
+      //       .Earning(120000);
       
-      WriteLine(person);
+      // WriteLine(person);
+      #endregion
 
-
+      #region Factory pattern
+      var machine = new HotDrinkMachine();
+      var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea,100);
+      drink.Consume();
       #endregion
     }
   }

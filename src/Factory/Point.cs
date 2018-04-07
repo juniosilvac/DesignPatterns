@@ -1,5 +1,5 @@
 using System;
-namespace DesignPatterns.Factory
+namespace DesignPatterns.Creational.Factory
 {
   public class Point
   {
@@ -9,11 +9,7 @@ namespace DesignPatterns.Factory
     {
       this.x = x;
       this.y = y;      
-    }    
-
-    public override string ToString()
-    {
-      return $"{nameof(x)}: {x}, {nameof(y)}: {y}";
-    }
+    }  
+    public override string ToString() => $"{nameof(x)}: {x}, {nameof(y)}: {y}";   
   }  
 }

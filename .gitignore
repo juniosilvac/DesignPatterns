@@ -2,6 +2,14 @@
 *.DS_Store
 [Tt]humbs.db
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
 #Visual Studio Files
 [Oo]bj
 [Bb]in

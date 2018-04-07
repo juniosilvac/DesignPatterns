@@ -1,5 +1,5 @@
 using System;
-namespace DesignPatterns.Factory
+namespace DesignPatterns.Creational.Factory
 {
   public static class PointFactory
   {
