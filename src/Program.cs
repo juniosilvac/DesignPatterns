@@ -7,6 +7,7 @@ using DesignPatterns.Solid.LSP;
 //using DesignPatterns.Solid.DIP;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.Factory;
+using DesignPatterns.Creational.Prototype;
 using static System.Console;
 
 namespace DesignPatterns
@@ -95,10 +96,19 @@ namespace DesignPatterns
       #endregion
 
       #region Factory pattern
-      var machine = new HotDrinkMachine();
+      // var machine = new HotDrinkMachine();
       //var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea,100);
-      var drink = machine.MakeDrink();
-      drink.Consume();
+      // var drink = machine.MakeDrink();
+      // drink.Consume();
+      #endregion
+     
+      #region Prototype pattern
+      Foo foo = new Foo {Stuff = 42, Whatever = "abc"};
+      //Foo foo2 = foo.DeepCopy(); // crashes without [Serializable]
+      Foo foo2 = foo.DeepCopyXml();
+      foo2.Whatever = "xyz";
+      WriteLine(foo);
+      WriteLine(foo2);
       #endregion
     }
   }
