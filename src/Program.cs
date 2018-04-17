@@ -8,6 +8,7 @@ using DesignPatterns.Solid.LSP;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.Factory;
 using DesignPatterns.Creational.Prototype;
+using DesignPatterns.Creational.Singleton;
 using static System.Console;
 
 namespace DesignPatterns
@@ -103,13 +104,21 @@ namespace DesignPatterns
       #endregion
      
       #region Prototype pattern
-      Foo foo = new Foo {Stuff = 42, Whatever = "abc"};
-      //Foo foo2 = foo.DeepCopy(); // crashes without [Serializable]
-      Foo foo2 = foo.DeepCopyXml();
-      foo2.Whatever = "xyz";
-      WriteLine(foo);
-      WriteLine(foo2);
+      // Foo foo = new Foo {Stuff = 42, Whatever = "abc"};
+      // Foo foo2 = foo.DeepCopy(); // crashes without [Serializable]
+      // Foo foo2 = foo.DeepCopyXml();
+      // foo2.Whatever = "xyz";
+      // WriteLine(foo);
+      // WriteLine(foo2);
       #endregion
+
+      #region Singleton pattern
+      var db = SingletonDatabase.Instance;
+      // works just fine while you're working with a real database.
+      var city = "Tokyo";
+      WriteLine($"{city} has population {db.GetPopulation(city)}");
+      #endregion
+
     }
   }
 }
