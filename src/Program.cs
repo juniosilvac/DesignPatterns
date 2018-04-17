@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
+using System.Collections.Generic;
 using DesignPatterns.Solid.SRP;
 using DesignPatterns.Solid.OCP;
 using DesignPatterns.Solid.LSP;
@@ -9,6 +10,7 @@ using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.Factory;
 using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Creational.Singleton;
+using DesignPatterns.Creational.Adapter;
 using static System.Console;
 
 namespace DesignPatterns
@@ -113,10 +115,19 @@ namespace DesignPatterns
       #endregion
 
       #region Singleton pattern
-      var db = SingletonDatabase.Instance;
+      //var db = SingletonDatabase.Instance;
       // works just fine while you're working with a real database.
-      var city = "Tokyo";
-      WriteLine($"{city} has population {db.GetPopulation(city)}");
+      //var city = "Tokyo";
+      //WriteLine($"{city} has population {db.GetPopulation(city)}");
+      #endregion
+
+      #region Adapter pattern
+      var targets = new List<ITarget>();
+      targets.Add(new AdapterText());
+      foreach(var target in targets)
+      {
+        target.Operation();
+      }
       #endregion
 
     }
