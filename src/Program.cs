@@ -1,4 +1,5 @@
 ﻿using System;
+using Autofac;
 using System.Diagnostics;
 using System.Text;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.Factory;
 using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Creational.Singleton;
-using DesignPatterns.Creational.Adapter;
+using DesignPatterns.Structural.Adapter;
+using DesignPatterns.Structural.Bridge;
 using static System.Console;
 
 namespace DesignPatterns
@@ -122,11 +124,33 @@ namespace DesignPatterns
       #endregion
 
       #region Adapter pattern
-      var targets = new List<ITarget>();
-      targets.Add(new AdapterText());
-      foreach(var target in targets)
+      //var targets = new List<ITarget>();
+      //targets.Add(new AdapterText());
+      //foreach(var target in targets)
+      //{
+      //  target.Operation();
+      //}
+      #endregion
+
+      #region Bridge pattern
+      //var raster = new RasterRenderer();
+      //var vector = new VectorRenderer();
+      //var circle = new Circle(vector, 5, 5, 5);
+      //circle.Draw();
+      //circle.Resize(2);
+      //circle.Draw();
+      var cb = new ContainerBuilder();
+      cb.RegisterType<VectorRenderer>().As<IRenderer>();
+      cb.Register((c, p) => new Circle(c.Resolve<IRenderer>(),
+        p.Positional<float>(0)));
+      using (var c = cb.Build())
       {
-        target.Operation();
+        var circle = c.Resolve<Circle>(
+          new PositionalParameter(0, 5.0f)
+        );
+        circle.Draw();
+        circle.Resize(2);
+        circle.Draw();
       }
       #endregion
 

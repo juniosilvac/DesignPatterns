@@ -1,6 +1,6 @@
 using System;
 using static System.Console;
-namespace DesignPatterns.Creational.Adapter
+namespace DesignPatterns.Structural.Adapter
 {
   public class WriterText
   {
